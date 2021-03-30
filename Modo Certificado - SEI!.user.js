@@ -1,9 +1,10 @@
 // ==UserScript==
-// @name        Criação de certificado - SEI!
+// @name        Modo certificado - SEI!
 // @namespace   NADH/EAD/JFSC
-// @match     https://sei.trf4.jus.br/sei/controlador.php?*
+// @include     https://sei.trf4.jus.br/sei/controlador.php?*
+// @include     https://sei.trf4.jus.br/controlador.php?*
 // @grant       none
-// @version     1.0
+// @version     1.1
 // @author      -
 // @description 30/04/2020 17:48:58
 // ==/UserScript==
@@ -69,17 +70,21 @@ const divArvore = document.querySelector('div#divArvoreHtml');
 divArvore.insertAdjacentElement('beforebegin', div);
 */
 
-document.getElementById('txtDataElaboracao').addEventListener('keyup', pulaParaNome);
 
-document.getElementById('txtNomeArvore').addEventListener('keydown', pulaParaUpload);
+if(document.getElementById('divInfraBarraLocalizacao').innerHTML=="Registrar Documento Externo") {
 
-preencheDataDeHoje();
-selecionaFormatoDigital();
-selecionaNivelPublico();
+  document.getElementById('txtDataElaboracao').addEventListener('keyup', pulaParaNome);
 
-if(document.getElementById('selSerie').value!=380) {
-  setSelectValue('selSerie', 380);
-  trocarSerie();
+  document.getElementById('txtNomeArvore').addEventListener('keydown', pulaParaUpload);
+
+  preencheDataDeHoje();
+  selecionaFormatoDigital();
+  selecionaNivelPublico();
+
+  if(document.getElementById('selSerie').value!=380) {
+    setSelectValue('selSerie', 380);
+    trocarSerie();
+  }
+
+  document.getElementById('txtNomeArvore').focus();
 }
-
-document.getElementById('txtNomeArvore').focus();
