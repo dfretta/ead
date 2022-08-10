@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name        Modo externo - SEI!
+// @name        Novo doc externo - SEI!
 // @namespace   NADH/EAD/JFSC
 // @include     https://sei.trf4.jus.br/sei/controlador.php?*
 // @include     https://sei.trf4.jus.br/controlador.php?*
